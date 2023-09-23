@@ -1,6 +1,7 @@
 package me.partlysunny.sunbeam;
 
 import me.partlysunny.sunbeam.config.Config;
+import me.partlysunny.sunbeam.menu.MenuListener;
 import me.partlysunny.sunbeam.misc.ConsoleLogger;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +14,7 @@ public final class Sunbeam {
         Scheduler.init(plugin);
         Config.init(plugin);
         Commands.init(plugin);
+        plugin.getServer().getPluginManager().registerEvents(new MenuListener(), plugin);
         Sunbeam.plugin = plugin;
     }
 
