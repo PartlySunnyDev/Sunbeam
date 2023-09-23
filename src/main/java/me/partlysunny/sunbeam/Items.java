@@ -1,4 +1,4 @@
-package me.partlysunny.sunbeam.util;
+package me.partlysunny.sunbeam;
 
 import com.google.common.base.Preconditions;
 import org.bukkit.inventory.ItemStack;

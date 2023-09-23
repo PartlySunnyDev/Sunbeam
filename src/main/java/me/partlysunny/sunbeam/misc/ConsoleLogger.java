@@ -1,4 +1,4 @@
-package me.partlysunny.sunbeam.util.classes;
+package me.partlysunny.sunbeam.misc;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

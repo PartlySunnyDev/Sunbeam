@@ -1,8 +1,7 @@
 package me.partlysunny.sunbeam;
 
 import me.partlysunny.sunbeam.config.Config;
-import me.partlysunny.sunbeam.util.Scheduler;
-import me.partlysunny.sunbeam.util.classes.ConsoleLogger;
+import me.partlysunny.sunbeam.misc.ConsoleLogger;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Sunbeam {

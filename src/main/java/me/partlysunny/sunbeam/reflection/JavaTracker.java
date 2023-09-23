@@ -1,4 +1,4 @@
-package me.partlysunny.sunbeam.util.reflection;
+package me.partlysunny.sunbeam.reflection;
 
 import java.util.Optional;
 
