@@ -1,11 +1,14 @@
 package me.partlysunny.sunbeam.config;
 
 import me.partlysunny.sunbeam.Sunbeam;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import javax.management.relation.RelationSupportMBean;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class ConfigInstance {
 
@@ -19,8 +22,13 @@ public class ConfigInstance {
         this.defaultFileName = defaultFileName;
         this.configName = configName;
         this.file = new File(Sunbeam.getPlugin().getDataFolder(), configName + ".yml");
-        this.config = new YamlConfiguration();
+        this.config = YamlConfiguration.loadConfiguration(file);
         this.defaultFileStream = getClass().getClassLoader().getResourceAsStream(defaultFileName + ".yml");
+        try {
+            reload();
+        } catch (IOException | InvalidConfigurationException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getDefaultFileName() {
@@ -35,8 +43,8 @@ public class ConfigInstance {
         return config;
     }
 
-    public void reload() {
-        /*if (!.exists()) {
+    public void reload() throws IOException, InvalidConfigurationException {
+        if (!file.exists()) {
             if (defaultFileStream != null) {
                 saveDefault();
             } else {
@@ -45,7 +53,21 @@ public class ConfigInstance {
                 }
             }
         }
-        config.load(file);*/
+        config.load(file);
+    }
+
+    public void save() throws IOException {
+        config.save(file);
+    }
+
+    public void saveDefault() throws IOException {
+        if (defaultFileStream == null) {
+            throw new IOException("Could not find default file " + defaultFileName);
+        }
+        if (file.exists()) {
+            return;
+        }
+        Sunbeam.getPlugin().saveResource(defaultFileName + ".yml", true);
     }
 
 }

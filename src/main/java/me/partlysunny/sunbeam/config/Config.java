@@ -1,5 +1,6 @@
 package me.partlysunny.sunbeam.config;
 
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nonnull;
@@ -28,7 +29,27 @@ public class Config {
     }
 
     public static ConfigInstance get(String name) {
+        return configs.get(name);
+    }
 
+    public static YamlConfiguration getConfig(String name) {
+        return configs.get(name).getConfig();
+    }
+
+    public static void reload(String name) {
+        try {
+            configs.get(name).reload();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void save(String name) {
+        try {
+            configs.get(name).save();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
