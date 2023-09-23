@@ -8,6 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Each menu is bound to an inventory
  * You can then open the menu for different players
@@ -15,6 +18,8 @@ import org.bukkit.inventory.ItemStack;
 public class Menu {
 
     private final Inventory inventory;
+    private final Map<Integer, MenuItem> items = new HashMap<>();
+    private boolean enforceNoClick = true;
 
     public Menu(String name, int rows) {
         inventory = Bukkit.createInventory(null, rows * 9, name);
@@ -22,6 +27,11 @@ public class Menu {
 
     public void setItem(int slot, MenuItem item) {
         inventory.setItem(slot, item.getItem());
+        items.put(slot, item);
+    }
+
+    public MenuItem getItem(int slot) {
+        return items.get(slot);
     }
 
     public void fillBackground(Material material) {
@@ -32,6 +42,14 @@ public class Menu {
                 inventory.setItem(i, item);
             }
         }
+    }
+
+    public boolean isEnforceNoClick() {
+        return enforceNoClick;
+    }
+
+    public void setEnforceNoClick(boolean enforceNoClick) {
+        this.enforceNoClick = enforceNoClick;
     }
 
     public void open(Player player) {

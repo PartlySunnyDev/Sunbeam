@@ -25,6 +25,6 @@ public class DisplayItem extends MenuItem {
 
     @Override
     public ItemStack getItem() {
-        return null;
+        return item;
     }
 }
