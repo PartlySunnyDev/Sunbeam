@@ -12,6 +12,7 @@ public final class Sunbeam {
         ConsoleLogger.init(plugin);
         Scheduler.init(plugin);
         Config.init(plugin);
+        Commands.init(plugin);
         Sunbeam.plugin = plugin;
     }
 
