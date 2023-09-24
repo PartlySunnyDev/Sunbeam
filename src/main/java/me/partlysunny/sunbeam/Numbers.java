@@ -31,4 +31,28 @@ public final class Numbers {
         return random.nextInt(max - min + 1) + min;
     }
 
+    public static String formatComma(String numberString) {
+        String[] split = numberString.split("\\.");
+        String wholeNumber = split[0];
+        String decimal = split.length > 1 ? split[1] : "";
+        StringBuilder formatted = new StringBuilder();
+        int count = 0;
+        for (int i = wholeNumber.length() - 1; i >= 0; i--) {
+            formatted.append(wholeNumber.charAt(i));
+            count++;
+            if (count == 3 && i != 0) {
+                formatted.append(",");
+                count = 0;
+            }
+        }
+        formatted.reverse();
+        if (!decimal.isEmpty()) {
+            formatted.append(".").append(decimal);
+        }
+        return formatted.toString();
+    }
+
+    public static String formatComma(int number) {
+        return formatComma(String.valueOf(number));
+    }
 }
