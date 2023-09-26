@@ -16,6 +16,7 @@ public final class Sunbeam {
     }
 
     public static void init(JavaPlugin plugin, SunbeamOptions options) {
+        Sunbeam.plugin = plugin;
         ConsoleLogger.init(plugin);
         Scheduler.init(plugin);
         Config.init(plugin);
@@ -23,7 +24,6 @@ public final class Sunbeam {
         if (options.doLoadMessagesConfig()) Message.init();
         key = options.getCustomDataKey();
         plugin.getServer().getPluginManager().registerEvents(new MenuListener(), plugin);
-        Sunbeam.plugin = plugin;
     }
 
     public static void reload() {

@@ -23,4 +23,7 @@ public final class Scheduler {
         scheduler.runTaskLater(plugin, t::cancel, stopAfter);
     }
 
+    public static BukkitTask runTaskTimer(Runnable update, int tickDelay, int tickInterval) {
+        return Bukkit.getScheduler().runTaskTimer(plugin, update, tickDelay, tickInterval);
+    }
 }

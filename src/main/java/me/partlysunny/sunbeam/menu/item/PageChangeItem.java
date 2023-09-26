@@ -11,20 +11,20 @@ import java.util.function.Supplier;
 
 public class PageChangeItem extends ButtonItem {
 
-    private final Supplier<Menu> destination;
+    private final String destination;
 
-    public PageChangeItem(Supplier<Menu> destination, String name) {
+    public PageChangeItem(String destination, String name) {
         this(destination, ItemBuilder.builder(Material.ARROW).setName(name).build());
     }
 
-    public PageChangeItem(Supplier<Menu> destination, ItemStack item) {
+    public PageChangeItem(String destination, ItemStack item) {
         super(event -> {
-            Menus.open(((Player) event.getWhoClicked()), destination.get());
+            Menus.open(((Player) event.getWhoClicked()), destination);
         }, item);
         this.destination = destination;
     }
 
-    public Supplier<Menu> getDestination() {
+    public String getDestination() {
         return destination;
     }
 

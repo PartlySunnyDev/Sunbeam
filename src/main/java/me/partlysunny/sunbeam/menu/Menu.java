@@ -36,7 +36,7 @@ public class Menu {
 
     public void fillBackground(Material material) {
         ItemStack item = new ItemStack(material);
-        Items.name(item, "");
+        Items.name(item, " ");
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {
                 inventory.setItem(i, item);
