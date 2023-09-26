@@ -1,8 +1,12 @@
 package me.partlysunny.sunbeam;
 
 import com.google.common.base.Preconditions;
+import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Arrays;
+import java.util.List;
 
 public final class Items {
 
@@ -11,7 +15,7 @@ public final class Items {
         Preconditions.checkNotNull(name, "name cannot be null");
         ItemMeta meta = item.getItemMeta();
         Preconditions.checkArgument(meta != null, "item must have meta");
-        meta.setDisplayName(name);
+        meta.setDisplayName(ChatColor.RESET + name);
         item.setItemMeta(meta);
     }
 
@@ -20,7 +24,11 @@ public final class Items {
         Preconditions.checkNotNull(lore, "lore cannot be null");
         ItemMeta meta = item.getItemMeta();
         Preconditions.checkArgument(meta != null, "item must have meta");
-        meta.setLore(java.util.Arrays.asList(lore));
+        List<String> list = Arrays.asList(lore);
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, ChatColor.RESET + list.get(i));
+        }
+        meta.setLore(list);
         item.setItemMeta(meta);
     }
 
