@@ -26,6 +26,11 @@ public final class Sunbeam {
         Sunbeam.plugin = plugin;
     }
 
+    public static void reload() {
+        Config.reload();
+
+    }
+
     public static JavaPlugin getPlugin() {
         if (plugin == null) {
             throw new IllegalStateException("Sunbeam has not been initialized yet!");

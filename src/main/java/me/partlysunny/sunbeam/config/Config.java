@@ -36,11 +36,23 @@ public class Config {
         return configs.get(name).getConfig();
     }
 
+    public static void check(String configName, String path, String consoleErrorMessage) {
+        if (!configs.get(configName).getConfig().contains(path)) {
+            throw new MalformedConfigurationException(consoleErrorMessage);
+        }
+    }
+
     public static void reload(String name) {
         try {
             configs.get(name).reload();
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static void reload() {
+        for (ConfigInstance config : configs.values()) {
+            reload(config.getConfigName());
         }
     }
 
