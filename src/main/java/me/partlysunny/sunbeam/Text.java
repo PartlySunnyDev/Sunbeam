@@ -6,12 +6,16 @@ import java.util.List;
 
 public final class Text {
 
-    public String color(String message) {
+    private Text() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    public static String color(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
-    public List<String> color(List<String> messages) {
-        messages.replaceAll(this::color);
+    public static List<String> color(List<String> messages) {
+        messages.replaceAll(Text::color);
         return messages;
     }
 

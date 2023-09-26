@@ -36,6 +36,10 @@ public class Config {
         return configs.get(name).getConfig();
     }
 
+    public static void check(String configName, String path) {
+        check(configName, path, "Could not find path " + path + " in config " + configName + "! Make sure to check the configuration files!");
+    }
+
     public static void check(String configName, String path, String consoleErrorMessage) {
         if (!configs.get(configName).getConfig().contains(path)) {
             throw new MalformedConfigurationException(consoleErrorMessage);
