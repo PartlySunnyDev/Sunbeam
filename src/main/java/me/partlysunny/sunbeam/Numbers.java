@@ -31,6 +31,46 @@ public final class Numbers {
         return random.nextInt(max - min + 1) + min;
     }
 
+    public static float randomBetween(float min, float max) {
+        Preconditions.checkArgument(min <= max, "min must be less than or equal to max");
+        if (min == max) return min;
+        if (min < 0 && max < 0) {
+            return -randomBetween(-max, -min);
+        }
+        if (min < 0) {
+            return randomBetween(0, -min + max + 1) + min;
+        }
+        return random.nextFloat() * (max - min) + min;
+    }
+
+    public static double randomBetween(double min, double max) {
+        Preconditions.checkArgument(min <= max, "min must be less than or equal to max");
+        if (min == max) return min;
+        if (min < 0 && max < 0) {
+            return -randomBetween(-max, -min);
+        }
+        if (min < 0) {
+            return randomBetween(0, -min + max + 1) + min;
+        }
+        return random.nextDouble() * (max - min) + min;
+    }
+
+    public static long randomBetween(long min, long max) {
+        Preconditions.checkArgument(min <= max, "min must be less than or equal to max");
+        if (min == max) return min;
+        if (min < 0 && max < 0) {
+            return -randomBetween(-max, -min);
+        }
+        if (min < 0) {
+            return randomBetween(0, -min + max + 1) + min;
+        }
+        return random.nextLong() * (max - min) + min;
+    }
+
+    public static int randomBetween(int max) {
+        return randomBetween(0, max);
+    }
+
     public static String formatComma(String numberString) {
         String[] split = numberString.split("\\.");
         String wholeNumber = split[0];

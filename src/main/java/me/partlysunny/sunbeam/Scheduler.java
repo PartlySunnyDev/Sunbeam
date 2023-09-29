@@ -26,4 +26,16 @@ public final class Scheduler {
     public static BukkitTask runTaskTimer(Runnable update, int tickDelay, int tickInterval) {
         return Bukkit.getScheduler().runTaskTimer(plugin, update, tickDelay, tickInterval);
     }
+
+    public static BukkitTask runTaskLater(Runnable update, int tickDelay) {
+        return Bukkit.getScheduler().runTaskLater(plugin, update, tickDelay);
+    }
+
+    public static BukkitTask runTask(Runnable update) {
+        return Bukkit.getScheduler().runTask(plugin, update);
+    }
+
+    public static BukkitTask runTaskAsync(Runnable update) {
+        return Bukkit.getScheduler().runTaskAsynchronously(plugin, update);
+    }
 }
