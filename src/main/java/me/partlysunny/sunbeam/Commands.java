@@ -59,4 +59,8 @@ public final class Commands {
         return (Player) sender;
     }
 
+    public static void sendUsage(CommandSender sender, String usage) {
+        sender.sendMessage(ChatColor.RED + "Correct Usage: " + usage);
+    }
+
 }
