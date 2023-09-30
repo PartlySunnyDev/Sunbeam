@@ -10,6 +10,10 @@ import java.util.List;
 
 public final class Items {
 
+    private Items() {
+        throw new AssertionError("Cannot instantiate Items");
+    }
+
     public static void name(ItemStack item, String name) {
         Preconditions.checkNotNull(item, "item cannot be null");
         Preconditions.checkNotNull(name, "name cannot be null");
@@ -30,10 +34,6 @@ public final class Items {
         }
         meta.setLore(list);
         item.setItemMeta(meta);
-    }
-
-    private Items() {
-        throw new AssertionError("Cannot instantiate Items");
     }
 
 }

@@ -2,9 +2,7 @@ package me.partlysunny.sunbeam.misc;
 
 import com.google.common.base.Preconditions;
 import me.partlysunny.sunbeam.Sunbeam;
-import me.partlysunny.sunbeam.SunbeamOptions;
 import org.bukkit.NamespacedKey;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;

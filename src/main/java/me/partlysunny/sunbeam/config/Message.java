@@ -10,6 +10,7 @@ public class Message {
 
     /**
      * Gets a message from the messages.yml file and automatically colors it.
+     *
      * @param path The path to the message.
      * @return The colored message.
      */
@@ -19,7 +20,8 @@ public class Message {
 
     /**
      * Gets a message from the messages.yml file.
-     * @param path The path to the message.
+     *
+     * @param path      The path to the message.
      * @param autoColor Whether or not to automatically color the message.
      * @return The message.
      */

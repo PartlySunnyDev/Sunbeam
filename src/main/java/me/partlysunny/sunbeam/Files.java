@@ -8,6 +8,10 @@ import java.nio.file.StandardCopyOption;
 
 public final class Files {
 
+    private Files() {
+        throw new AssertionError("Cannot instantiate Files");
+    }
+
     public static void copy(String source, String destination, StandardCopyOption copyOption) {
         Preconditions.checkNotNull(source, "source cannot be null");
         Preconditions.checkNotNull(destination, "destination cannot be null");
@@ -32,10 +36,6 @@ public final class Files {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private Files() {
-        throw new AssertionError("Cannot instantiate Files");
     }
 
 }

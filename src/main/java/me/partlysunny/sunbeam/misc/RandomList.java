@@ -1,10 +1,6 @@
 package me.partlysunny.sunbeam.misc;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.NavigableMap;
-import java.util.Random;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 

@@ -1,10 +1,7 @@
 package me.partlysunny.sunbeam.menu.item;
 
-import me.partlysunny.sunbeam.Scheduler;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitTask;
 
 public class UpdatingItem extends DisplayItem {
 

@@ -1,13 +1,10 @@
 package me.partlysunny.sunbeam.menu.item;
 
-import me.partlysunny.sunbeam.menu.Menu;
 import me.partlysunny.sunbeam.menu.Menus;
 import me.partlysunny.sunbeam.misc.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.function.Supplier;
 
 public class PageChangeItem extends ButtonItem {
 

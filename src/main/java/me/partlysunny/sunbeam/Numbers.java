@@ -15,6 +15,7 @@ public final class Numbers {
 
     /**
      * Returns a random integer between min and max, inclusive.
+     *
      * @param min inclusive
      * @param max inclusive
      * @return a random integer between min and max, inclusive

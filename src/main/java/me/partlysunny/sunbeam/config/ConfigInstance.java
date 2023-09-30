@@ -4,11 +4,9 @@ import me.partlysunny.sunbeam.Sunbeam;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import javax.management.relation.RelationSupportMBean;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class ConfigInstance {
 

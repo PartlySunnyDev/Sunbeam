@@ -18,8 +18,9 @@ public class Config {
 
     /**
      * Add a config file to the config system.
+     *
      * @param defaultFileName The name or path to the default file without .yml extension
-     * @param configName The name of the config file
+     * @param configName      The name of the config file
      */
     public static void add(@Nullable String defaultFileName, @Nonnull String configName) {
         if (defaultFileName == null) {
