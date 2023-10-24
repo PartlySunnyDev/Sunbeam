@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import javax.sql.DataSource;
 
-public class Databases {
+public final class Databases {
 
     public static HikariConfig generate(String host, int port, String database, String username, String password) {
         HikariConfig config = new HikariConfig();

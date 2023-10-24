@@ -6,7 +6,7 @@ import org.bukkit.util.Transformation;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-public class Displays {
+public final class Displays {
 
     public static Transformation copy(Transformation original) {
         return new Transformation(new Vector3f(original.getTranslation()), new Quaternionf(original.getLeftRotation()), new Vector3f(original.getScale()), new Quaternionf(original.getRightRotation()));
