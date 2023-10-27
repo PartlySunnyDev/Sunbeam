@@ -33,4 +33,29 @@ public class Message {
         return message;
     }
 
+    /**
+     * Gets a message from the messages.yml file and automatically colors it.
+     * @param path The path to the message in the config file.
+     * @param defaultMessage The message to default to if the path does not exist.
+     * @return The colored message.
+     */
+    public static String get(String path, String defaultMessage) {
+        return get(path, defaultMessage, true);
+    }
+
+    /**
+     * Gets a message from the messages.yml file with a specified coloring strategy
+     * @param path The path to the message in the config file.
+     * @param defaultMessage The message to default to if the path does not exist.
+     * @param autoColor Whether or not to automatically color the message.
+     * @return The message after processing.
+     */
+    public static String get(String path, String defaultMessage, boolean autoColor) {
+        String message = Config.getConfig("messages").getString(path, defaultMessage);
+        if (autoColor) {
+            return Text.color(message);
+        }
+        return message;
+    }
+
 }
