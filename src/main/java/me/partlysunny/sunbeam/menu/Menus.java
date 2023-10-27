@@ -29,6 +29,11 @@ public class Menus {
         openMenus.remove(player.getUniqueId());
     }
 
+    public static void reload(Player player, String menu) {
+        close(player);
+        open(player, menu);
+    }
+
     public static Menu getOpenMenu(Player player) {
         return openMenus.get(player.getUniqueId());
     }
