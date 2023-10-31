@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 
 public class MenuListener implements Listener {
 
@@ -26,6 +27,16 @@ public class MenuListener implements Listener {
             }
             if (item instanceof ButtonItem button) {
                 button.onClick(e);
+            }
+        }
+    }
+
+    @EventHandler
+    public void playerCloseMenu(InventoryCloseEvent e) {
+        if (e.getPlayer() instanceof Player player) {
+            Menu menu = Menus.getOpenMenu(player);
+            if (menu != null) {
+                Menus.close(player);
             }
         }
     }
