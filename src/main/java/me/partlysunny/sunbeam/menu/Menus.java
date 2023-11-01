@@ -1,6 +1,7 @@
 package me.partlysunny.sunbeam.menu;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +26,8 @@ public class Menus {
     }
 
     public static void close(Player player) {
-        player.closeInventory();
         openMenus.remove(player.getUniqueId());
+        player.closeInventory();
     }
 
     public static void reload(Player player, String menu) {
