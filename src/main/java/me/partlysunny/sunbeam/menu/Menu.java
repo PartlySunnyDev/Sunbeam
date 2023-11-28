@@ -60,4 +60,12 @@ public class Menu {
         return inventory;
     }
 
+    public void update() {
+        for (int i = 0; i < inventory.getSize(); i++) {
+            if (items.containsKey(i)) {
+                items.get(i).update();
+            }
+        }
+    }
+
 }

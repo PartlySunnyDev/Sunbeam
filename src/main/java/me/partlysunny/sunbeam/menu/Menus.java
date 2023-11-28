@@ -2,6 +2,7 @@ package me.partlysunny.sunbeam.menu;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,14 @@ public class Menus {
     private static final Map<UUID, Menu> openMenus = new HashMap<>();
     private static final Map<String, MenuProvider> registeredMenus = new HashMap<>();
 
+    public static void init(JavaPlugin plugin)
+    {
+        plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+            for (Menu menu : openMenus.values()) {
+                menu.update();
+            }
+        }, 0, 1);
+    }
     public static void open(Player player, Menu menu) {
         menu.open(player);
         openMenus.put(player.getUniqueId(), menu);

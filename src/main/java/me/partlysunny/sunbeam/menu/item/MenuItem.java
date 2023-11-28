@@ -6,4 +6,7 @@ public abstract class MenuItem {
 
     public abstract ItemStack getItem();
 
+    public void update() {
+    }
+
 }
