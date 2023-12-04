@@ -8,6 +8,9 @@ import java.io.IOException;
 public final class FileUtils {
 
     public static String read(File file) {
+        if (!file.exists()) {
+            return null;
+        }
         try {
             StringBuilder builder = new StringBuilder();
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -40,6 +43,14 @@ public final class FileUtils {
     }
 
     public static void write(File file, String content) {
+        if (!file.exists()) {
+            try {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try {
             java.io.FileWriter writer = new java.io.FileWriter(file);
             writer.write(content);
