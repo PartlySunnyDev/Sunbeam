@@ -1,7 +1,10 @@
 package me.partlysunny.sunbeam;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -91,6 +94,17 @@ public final class Numbers {
             formatted.append(".").append(decimal);
         }
         return formatted.toString();
+    }
+
+    public static List<Integer> getRandomUniqueNumbers(int min, int max, int count) {
+        Preconditions.checkArgument(min <= max, "min must be less than or equal to max");
+        Preconditions.checkArgument(count <= max - min + 1, "count must be less than or equal to max - min + 1");
+        List<Integer> numbers = Lists.newArrayList();
+        for (int i = min; i <= max; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
+        return numbers.subList(0, count);
     }
 
     public static String formatComma(int number) {
