@@ -7,7 +7,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class Message {
+public final class Message {
 
     public static void init() {
         Config.add("messages", "messages");

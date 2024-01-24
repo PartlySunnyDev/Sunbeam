@@ -5,7 +5,7 @@ import me.partlysunny.sunbeam.Sunbeam;
 
 import java.io.File;
 
-public class JsonStorage {
+public final class JsonStorage {
 
     public static String savePath = "data";
 

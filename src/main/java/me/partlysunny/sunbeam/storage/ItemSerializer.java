@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class ItemSerializer {
+public final class ItemSerializer {
 
     private static final Gson gson = new Gson();
 

@@ -4,7 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
-public class ConsoleLogger {
+public final class ConsoleLogger {
 
     private static Logger logger;
 

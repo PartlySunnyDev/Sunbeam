@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class Menus {
+public final class Menus {
 
     private static final Map<UUID, Menu> openMenus = new HashMap<>();
     private static final Map<String, MenuProvider> registeredMenus = new HashMap<>();

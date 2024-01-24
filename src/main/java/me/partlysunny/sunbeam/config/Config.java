@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Config {
+public final class Config {
 
     private static final Map<String, ConfigInstance> configs = new HashMap<>();
 

@@ -3,7 +3,7 @@ package me.partlysunny.sunbeam;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
-public class Vectors {
+public final class Vectors {
 
     public static double getXZDistance(Location loc1, Location loc2) {
         return Math.sqrt(Math.pow(loc1.getX() - loc2.getX(), 2) + Math.pow(loc1.getZ() - loc2.getZ(), 2));

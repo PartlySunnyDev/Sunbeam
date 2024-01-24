@@ -2,7 +2,7 @@ package me.partlysunny.sunbeam.menu;
 
 import org.bukkit.inventory.EquipmentSlot;
 
-public class Slots {
+public final class Slots {
 
     public static final int HOTBAR_START = 0;
     public static final int HOTBAR_END = 8;
