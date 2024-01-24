@@ -170,5 +170,12 @@ public class CustomData {
         return value == 1;
     }
 
+    public void remove(String key) {
+        Preconditions.checkNotNull(key, "key cannot be null");
+        NamespacedKey nKey = NamespacedKey.fromString(key, Sunbeam.getPlugin());
+        Preconditions.checkNotNull(nKey, "key cannot be null");
+        container.remove(nKey);
+    }
+
 
 }
