@@ -5,12 +5,14 @@ import me.partlysunny.sunbeam.Sunbeam;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 public class CustomData {
 
     private final PersistentDataContainer container;
+    private ItemMeta potentialMeta;
 
     private CustomData(PersistentDataContainer container) {
         this.container = container;
@@ -30,7 +32,9 @@ public class CustomData {
         Preconditions.checkNotNull(block, "block cannot be null");
         Preconditions.checkNotNull(block.getItemMeta(), "block must have meta");
         Preconditions.checkNotNull(block.getItemMeta().getPersistentDataContainer(), "block must have custom data");
-        return of(block.getItemMeta().getPersistentDataContainer());
+        CustomData customData = of(block.getItemMeta().getPersistentDataContainer());
+        customData.potentialMeta = block.getItemMeta();
+        return customData;
     }
 
     public void set(String key, String value) {
@@ -177,5 +181,17 @@ public class CustomData {
         container.remove(nKey);
     }
 
+    public boolean has(String key) {
+        Preconditions.checkNotNull(key, "key cannot be null");
+        NamespacedKey nKey = NamespacedKey.fromString(key, Sunbeam.getPlugin());
+        Preconditions.checkNotNull(nKey, "key cannot be null");
+        return container.has(nKey, PersistentDataType.BYTE);
+    }
 
+    public void update(ItemStack item) {
+        if (potentialMeta == null) {
+            throw new IllegalStateException("Cannot update item without meta: CustomData was not created with an item");
+        }
+        item.setItemMeta(potentialMeta);
+    }
 }

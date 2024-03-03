@@ -1,6 +1,7 @@
 package me.partlysunny.sunbeam;
 
 import com.google.common.base.Preconditions;
+import me.partlysunny.sunbeam.misc.CustomData;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -34,6 +35,19 @@ public final class Items {
         }
         meta.setLore(list);
         item.setItemMeta(meta);
+    }
+
+    public static void tag(ItemStack item, String tagId) {
+        Preconditions.checkNotNull(tagId, "tagId cannot be null");
+        CustomData data = CustomData.of(item);
+        data.set(tagId, true);
+        data.update(item);
+    }
+
+    public static boolean checkTag(ItemStack item, String tagId) {
+        Preconditions.checkNotNull(tagId, "tagId cannot be null");
+        CustomData data = CustomData.of(item);
+        return data.has(tagId);
     }
 
 }
